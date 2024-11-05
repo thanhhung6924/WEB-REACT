@@ -1,0 +1,102 @@
+@import "normalize.css";
+
+:root {
+  --font-family: "Roboto", sans-serif;
+}
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+html {
+  margin: 0;
+  font-size: 62.5%;
+}
+body {
+  margin: 0;
+  font-family: var(--font-family);
+  font-size: 1.6rem;
+  text-rendering: optimizeSpeed;
+}
+ul {
+  list-style: none;
+}
+li {
+}
+.row {
+  display: flex;
+  flex-wrap: wrap;
+}
+.container {
+  width: 1170px;
+  margin: 0 auto;
+  /* dảm bảo cách lề 24px */
+  max-width: calc(100% - 48px);
+  height: 100%;
+}
+$DESKTOP: "DESKTOP";
+$MEDIUM: "MEDIUM";
+$TABLET: "TABLET";
+$MOBILE: "MOBILE";
+$SMALL: "SMALL";
+
+@mixin Responsive($canvas) {
+  @if ($canvas == $DESKTOP) {
+    @media only screen and (min-width: 1200px) {
+      @content;
+    }
+  } @else if ($canvas == $MEDIUM) {
+    @media only screen and (min-width: 992px) and (max-width: 1199px) {
+      @content;
+    }
+  } @else if ($canvas == $TABLET) {
+    @media only screen and (min-width: 768px) and (max-width: 991px) {
+      @content;
+    }
+  } @else if ($canvas == $MOBILE) {
+    @media only screen and (min-width: 576px) and (max-width: 767px) {
+      @content;
+    }
+  } @else if ($canvas == $SMALL) {
+    @media only screen and (max-width: 575px) {
+      @content;
+    }
+  }
+}
+
+// Cấu trúc tương tự Bootstrap cho các cột
+@include Responsive($SMALL) {
+  .col-sm-12 {
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+}
+
+@include Responsive($TABLET) {
+  .col-md-6 {
+    flex: 0 0 50%;
+    max-width: 50%;
+  }
+}
+
+@include Responsive($MEDIUM) {
+  .col-lg-3 {
+    flex: 0 0 25%;
+    min-width: 25%;
+  }
+  .col-lg-6 {
+    flex: 0 0 50%;
+    min-width: 50%;
+  }
+}
+
+@include Responsive($DESKTOP) {
+  .col-xl-6 {
+    flex: 0 0 50%;
+    max-width: 50%;
+  }
+  .col-xl-3 {
+    flex: 0 0 25%;
+    min-width: 25%;
+  }
+}

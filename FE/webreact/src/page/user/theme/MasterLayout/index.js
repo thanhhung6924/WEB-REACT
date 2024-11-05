@@ -5,8 +5,7 @@ const MasterLayout = ({ children, ...props }) => {
   return (
     <Fragment {...props}>
       <Header />
-      {children}
-      <Footer />
+      
     </Fragment>
   );
 };
