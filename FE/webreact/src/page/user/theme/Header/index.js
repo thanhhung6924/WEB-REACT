@@ -1,6 +1,8 @@
-import { Fragment, memo } from "react";
+import { Fragment, memo, useState } from "react";
 import classNames from "classnames/bind";
 import styles from "./Header.module.scss";
+import { TiShoppingCart } from "react-icons/ti";
+
 import {
   FaMailchimp,
   FaFacebookF,
@@ -11,8 +13,46 @@ import {
 import { IoPersonOutline } from "react-icons/io5";
 import { Link } from "react-router-dom";
 import { formatter } from "../../../../utils/fomatter";
+import { ROUTERS } from "../../../../utils/router";
 const cx = classNames.bind(styles);
 const Header = () => {
+  const [menu, setMenu] = useState([
+    {
+      name: "Trang chủ",
+      path: ROUTERS.USER.HOME,
+    },
+    {
+      name: "Cửa Hàng",
+      path: ROUTERS.USER.HOME,
+    },
+    {
+      name: "Sản Phẩm",
+      path: ROUTERS.USER.HOME,
+      isShowSubmenu: false,
+      children: [
+        {
+          name: "Thịt",
+          path: ROUTERS.USER.HOME,
+        },
+        {
+          name: "Rau củ",
+          path: ROUTERS.USER.HOME,
+        },
+        {
+          name: "Thức an nhanh",
+          path: ROUTERS.USER.HOME,
+        },
+      ],
+    },
+    {
+      name: "Bài Viết",
+      path: ROUTERS.USER.HOME,
+    },
+    {
+      name: "Liên Hệ",
+      path: ROUTERS.USER.HOME,
+    },
+  ]);
   return (
     <Fragment>
       <header className={cx("header__top")}>
@@ -62,10 +102,38 @@ const Header = () => {
         </div>
       </header>
       <div className="container">
-        <div className="row">
-          <div className=" col-lg-3 col-xl-3">LOGO</div>
-          <div className="col-lg-6 col-xl-6">LOGO</div>
-          <div className="col-lg-3 col-xl-3">LOGO</div>
+        <div className="row navbar__list">
+          <div className=" col-lg-3 col-xl-3">
+            <div className={cx("header__logo")}>
+              <h1>FOODSHOP</h1>
+            </div>
+          </div>
+          <div className="col-lg-6 col-xl-6">
+            <nav className={cx("header__menu")}>
+              <ul>
+                {menu.map((menuItem, index) => (
+                  <li className={cx({ active: index === 0 })} key={index}>
+                    <Link to={menuItem.path}>{menuItem.name}</Link>
+                  </li>
+                ))}
+              </ul>
+            </nav>
+          </div>
+          <div className="col-lg-3 col-xl-3">
+            <div className={cx("header__cart")}>
+              <div className={cx("header__cart__price")}>
+                <span>{formatter(1023000)}</span>
+              </div>
+              <ul>
+                <li>
+                  <Link>
+                    <TiShoppingCart className={cx("cart-icon")} />
+                    <span className={cx("cart-count")}>5</span>
+                  </Link>
+                </li>
+              </ul>
+            </div>
+          </div>
         </div>
       </div>
     </Fragment>
