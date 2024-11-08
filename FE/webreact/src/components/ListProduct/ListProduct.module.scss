@@ -1,0 +1,235 @@
+$DESKTOP: "DESKTOP";
+$MEDIUM: "MEDIUM";
+$TABLET: "TABLET";
+$MOBILE: "MOBILE";
+$SMALL: "SMALL";
+
+@mixin Responsive($canvas) {
+  @if ($canvas == $DESKTOP) {
+    @media only screen and (min-width: 1200px) {
+      @content;
+    }
+  } @else if ($canvas == $MEDIUM) {
+    @media only screen and (min-width: 992px) and (max-width: 1199px) {
+      @content;
+    }
+  } @else if ($canvas == $TABLET) {
+    @media only screen and (min-width: 768px) and (max-width: 991px) {
+      @content;
+    }
+  } @else if ($canvas == $MOBILE) {
+    @media only screen and (min-width: 576px) and (max-width: 767px) {
+      @content;
+    }
+  } @else if ($canvas == $SMALL) {
+    @media only screen and (max-width: 575px) {
+      @content;
+    }
+  }
+}
+@include Responsive($MOBILE) {
+}
+@include Responsive($TABLET) {
+}
+
+@include Responsive($MEDIUM) {
+}
+
+@include Responsive($DESKTOP) {
+}
+.wrapper {
+  margin-top: 20px;
+  .item {
+    margin-right: 5px;
+    height: 250px;
+    position: relative;
+    background-image: no-repeat;
+    background-size: cover;
+    background-position: top center;
+
+    border-radius: 5px;
+  }
+}
+.featured {
+  margin-top: 30px;
+  width: 100%;
+
+  .content {
+    margin-bottom: 20px;
+    h2 {
+      position: relative;
+      text-align: center;
+      position: relative;
+    }
+    h2:after {
+      content: "";
+      margin: 0 auto;
+      position: absolute;
+      bottom: -15px;
+      right: 0;
+      left: 0;
+
+      height: 4px;
+      width: 80px;
+      background-color: aqua;
+    }
+  }
+}
+.tabs {
+}
+.tablist {
+}
+.tabpanel {
+}
+.customRow {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  gap: 10px;
+}
+@include Responsive($MOBILE) {
+  .customRow {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+@include Responsive($TABLET) {
+  .customRow {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+
+@include Responsive($MEDIUM) {
+}
+@include Responsive($SMALL) {
+  .customRow {
+    grid-template-columns: 1fr;
+  }
+}
+.tabs {
+  ul {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 50px;
+    border: none;
+  }
+}
+.tab {
+  li {
+    border: none;
+    font-size: 1.8rem;
+    cursor: pointer;
+    display: inline-block;
+  }
+}
+
+.list__item {
+  margin-bottom: 50px;
+
+  &:hover {
+    .hover {
+      top: 85% !important;
+    }
+  }
+  .pic {
+    border-radius: 8px;
+    height: 270px;
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+    background-position: center;
+    background-size: cover; /* Làm ảnh phủ hết phần tử */
+    background-position: center;
+  }
+  ul {
+    position: absolute;
+    left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    top: 100%;
+    width: 100%;
+    text-align: center;
+    transition: 0.4s;
+    li {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1rem;
+      color: white;
+      svg {
+        border-radius: 50px;
+        margin-left: 5px;
+        padding: 5px;
+        height: 25px;
+        font-size: 1rem;
+        width: 25px;
+        transition: 0.3s;
+        color: black;
+        background-color: white;
+      }
+      &:hover {
+        svg {
+          transform: rotateZ(110deg);
+          background-color: rgb(255, 95, 38);
+          color: white;
+        }
+      }
+    }
+  }
+  .item-text {
+    text-align: center;
+    h6 {
+      margin-top: 8px;
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: rgb(255, 95, 38);
+    }
+    h5 {
+      margin-top: 10px;
+      font-size: 1.8rem;
+      margin-bottom: 10px;
+      a {
+        color: rgb(0, 0, 0);
+        text-decoration: none;
+        &:hover {
+          color: rgb(255, 95, 38);
+        }
+      }
+      h4 {
+        margin-top: 10px;
+        font-weight: 600;
+        font-style: italic;
+      }
+    }
+  }
+}
+.banner {
+  height: 320px;
+  gap: 10px;
+
+  width: 100%;
+  margin-bottom: 40px;
+  display: flex;
+  justify-content: space-between;
+  overflow: hidden;
+  border-radius: 10px;
+  img {
+    border-radius: 10px;
+    height: 100%;
+    overflow: hidden;
+    width: 100%;
+  }
+}
+.banner {
+  @include Responsive($MEDIUM) {
+  }
+  @include Responsive($TABLET) {
+  }
+  @include Responsive($MOBILE) {
+    flex-direction: column;
+    height: 640px;
+  }
+  @include Responsive($SMALL) {
+    flex-direction: column;
+    height: 640px;
+  }
+}

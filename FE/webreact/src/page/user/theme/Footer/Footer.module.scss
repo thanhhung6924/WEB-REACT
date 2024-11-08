@@ -1,0 +1,124 @@
+.footer {
+  .row__footer{
+    padding: 20px 0;
+   align-items: normal;
+  }
+background-color: aliceblue;
+  .footer__about {
+    ul{
+      display: flex;
+      flex-direction: column;
+    }
+    margin-bottom: 30px;
+    ul li {
+      font-size: 1.4rem;
+      margin-bottom: 10px;
+      display: inline-block;
+      gap: 10px;
+      align-items: center;
+      line-height: 36px;
+      opacity: 0.8;
+    }
+   ul li a{
+      font-size: 1.4rem;
+    }
+    h1{
+      margin-bottom: 10px;
+    }
+  }
+  .footer__widget__social {
+    margin-bottom: 30px;
+    margin-top: 20px;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+  }
+  .footer__widget{
+    p{
+      font-size: 1.6rem;
+      opacity: 0.7;
+      margin-bottom: 10px;
+    }
+    h6{
+      margin-bottom: 10px;
+      font-size: 1.6rem;
+    }
+    ul{
+      float: left;
+      width: 50%;
+    }
+    li{
+      margin-top: 5px;
+      align-items: center;
+     
+      opacity: 0.8;
+    }
+    li a{
+      font-size: 1.4rem;
+    }
+    form{
+      width: 100%;
+      div{
+        width: 100%;
+        display: flex;
+        button{
+          border-radius: 5px !important;
+          outline: none;
+          border:none;
+        }
+        input{
+          width: 60%;
+          padding: 5px;
+          border-radius: 5px !important;
+          height: 40px;
+         
+          outline: none;
+          border:none;
+        }
+      }
+    }
+  }
+}
+$DESKTOP: "DESKTOP";
+$MEDIUM: "MEDIUM";
+$TABLET: "TABLET";
+$MOBILE: "MOBILE";
+$SMALL: "SMALL";
+
+@mixin Responsive($canvas) {
+  @if ($canvas == $DESKTOP) {
+    @media only screen and (min-width: 1200px) {
+      @content;
+    }
+  } @else if ($canvas == $MEDIUM) {
+    @media only screen and (min-width: 992px) and (max-width: 1199px) {
+      @content;
+    }
+  } @else if ($canvas == $TABLET) {
+    @media only screen and (min-width: 768px) and (max-width: 991px) {
+      @content;
+    }
+  } @else if ($canvas == $MOBILE) {
+    @media only screen and (min-width: 576px) and (max-width: 767px) {
+      @content;
+    }
+  } @else if ($canvas == $SMALL) {
+    @media only screen and (max-width: 575px) {
+      @content;
+    }
+  }
+}
+@include Responsive($MOBILE) {
+ 
+}
+@include Responsive($TABLET) {
+ 
+}
+
+@include Responsive($MEDIUM) {
+
+}
+
+@include Responsive($DESKTOP) {
+
+}

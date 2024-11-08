@@ -29,11 +29,12 @@ a{
 }
 .row {
   display: flex;
-  align-items: center;
+ 
   flex-wrap: wrap;
+  justify-content: space-between;
 }
 .container {
-  width: 1170px;
+  width: 1300px;
   margin: 0 auto;
   /* dảm bảo cách lề 24px */
   max-width: calc(100% - 48px);
@@ -75,12 +76,47 @@ $SMALL: "SMALL";
     flex: 0 0 100%;
     max-width: 100%;
   }
+  .col-sm-12{
+    flex: 0 0 100%;
+    max-width: 100%;}
+    .col-mx-12{
+      flex: 0 0 100%;
+      max-width: 100%;
+    }
 }
 
+
+
+@include Responsive($MOBILE) {
+  .col-md-6 {
+    flex: 0 0 50%;
+    max-width: 50%;
+  }
+  .col-md-12{
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+  .col-mx-12{
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+}
 @include Responsive($TABLET) {
   .col-md-6 {
     flex: 0 0 50%;
     max-width: 50%;
+  }
+  .col-md-12{
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+  .col-lg-9 {
+    flex: 0 0 75%;
+    min-width: 75%;
+  }
+  .col-mx-12{
+    flex: 0 0 100%;
+    max-width: 100%;
   }
 }
 
@@ -93,6 +129,23 @@ $SMALL: "SMALL";
     flex: 0 0 50%;
     min-width: 50%;
   }
+  .col-lg-9 {
+    flex: 0 0 75%;
+    min-width: 75%;
+  }
+  .col-mx-12{
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+  .col-bread-9{
+    flex: 0 0 75%;
+    min-width: 75%;
+  }
+  .col-bread-3{
+    flex: 0 0 25%;
+    min-width: 25%;
+  }
+  
 }
 
 @include Responsive($DESKTOP) {
@@ -104,7 +157,27 @@ $SMALL: "SMALL";
     flex: 0 0 25%;
     min-width: 25%;
   }
+  .col-xl-9 {
+    flex: 0 0 75%;
+    min-width: 75%;
+  }
+  .col-bread-9{
+    flex: 0 0 75%;
+    min-width: 75%;
+  }
+  .col-bread-3{
+    flex: 0 0 25%;
+    min-width: 25%;
+  }
 }
-.navbar__list{
-  padding: 20px 0;
+.logo__all{
+ width: 150px;
+}
+.react-tabs__tab--selected {
+//  font-weight: 800;
+//  font-family:  "Roboto", sans-serif;
+//  font-style: normal;
+border: none;
+outline: none;
+font-weight: 700;
 }
