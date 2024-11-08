@@ -1,4 +1,6 @@
+import Cart from "./components/Cart/Cart";
 import Action from "./page/user/Action/Action";
+import Detail from "./page/user/Detail/Detail";
 import HomePage from "./page/user/homePage";
 import ProfilePage from "./page/user/profilePage";
 import MasterLayout from "./page/user/theme/MasterLayout";
@@ -8,11 +10,17 @@ import { Routes, Route } from "react-router-dom";
 const renderUserRouter = () => {
   const userRouters = [
     {
-      path: ROUTERS.USER.PROFILE,
-      component: < ProfilePage />,
+      path: ROUTERS.USER.PRODUCTS,
+      component: <Detail />,
     },
-
     {
+      path: ROUTERS.USER.PROFILE,
+      component: <ProfilePage />,
+    },
+    {
+      path: ROUTERS.USER.CART,
+      component: <Cart />,
+    },{
       path: ROUTERS.USER.PRODUCT,
       component: <Action />,
     },

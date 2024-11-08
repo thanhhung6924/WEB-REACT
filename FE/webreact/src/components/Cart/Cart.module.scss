@@ -1,0 +1,154 @@
+$DESKTOP: "DESKTOP";
+$MEDIUM: "MEDIUM";
+$TABLET: "TABLET";
+$MOBILE: "MOBILE";
+$SMALL: "SMALL";
+
+@mixin Responsive($canvas) {
+  @if ($canvas == $DESKTOP) {
+    @media only screen and (min-width: 1200px) {
+      @content;
+    }
+  } @else if ($canvas == $MEDIUM) {
+    @media only screen and (min-width: 992px) and (max-width: 1199px) {
+      @content;
+    }
+  } @else if ($canvas == $TABLET) {
+    @media only screen and (min-width: 768px) and (max-width: 991px) {
+      @content;
+    }
+  } @else if ($canvas == $MOBILE) {
+    @media only screen and (min-width: 576px) and (max-width: 767px) {
+      @content;
+    }
+  } @else if ($canvas == $SMALL) {
+    @media only screen and (max-width: 575px) {
+      @content;
+    }
+  }
+}
+@include Responsive($MOBILE) {
+}
+@include Responsive($TABLET) {
+}
+
+@include Responsive($MEDIUM) {
+}
+
+@include Responsive($DESKTOP) {
+}
+.table__cart {
+  overflow-y: auto;
+  table {
+    td,
+    th {
+      text-align: center;
+      padding: 20px 0;
+      border-bottom: 1px solid gainsboro;
+    }
+    width: 100%;
+    thead {
+      tr {
+        th {
+          text-align: center;
+        }
+      }
+    }
+    tbody {
+      tr {
+        td {
+          img {
+            height: 100%;
+            width: 120px;
+          }
+        }
+      }
+    }
+  }
+  .ct {
+    text-align: center;
+  }
+  .close {
+    cursor: pointer;
+    font-size: 2rem;
+    svg {
+      transform: rotate(0);
+      transition: 0.3s;
+    }
+    &:hover {
+      svg {
+        color: rgb(255, 110, 58);
+        transform: rotate(180deg);
+      }
+    }
+  }
+}
+.center {
+  display: flex;
+
+  justify-content: center;
+}
+.discount {
+  
+ 
+  h3{
+    text-align: center;
+  }
+  margin: 10px;
+  height: 60px;
+  margin-bottom: 40px;
+  form {
+    display: flex;
+    align-items: center;
+    margin: 20px 0;
+   
+    width: 100%;
+    height: 40px;
+    input,
+    button {
+      height: 100%;
+    }
+    input {
+      width: 80%;
+      padding: 5px 10px;
+    }
+    button {
+      width: 20%;
+      color: white;
+      background-color:  rgb(255, 110, 58);
+      border: none;
+      outline: none;
+      font-size: 1.6rem;
+      font-weight: 700;
+    }
+  }
+}
+.total{
+  padding: 20px;
+  margin: 40px 0;
+  
+  width: 100%;
+  background-color: rgb(228, 228, 228);
+  // color: white;
+border: 1px solid  transparent;
+  align-items: center;
+  flex-direction: column;
+  border-radius: 5px;
+  gap: 15px;
+  p{
+   margin: 15px 0;
+  }
+  button{
+    width: 100%;
+    height: 40px;
+    border-radius: 5px;
+    background-color: rgb(255, 110, 58);
+    border: none;
+    outline: none;
+    font-size: 1.6rem;
+    padding: 5px;
+    color: white;
+    font-weight: 700;
+    cursor: pointer;
+  }
+}

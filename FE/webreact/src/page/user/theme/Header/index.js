@@ -49,7 +49,7 @@ const Header = () => {
     },
     {
       name: "Cửa Hàng",
-      path: ROUTERS.USER.HOME,
+      path: ROUTERS.USER.PROFILE,
     },
     {
       name: "Sản Phẩm",
@@ -94,7 +94,7 @@ const Header = () => {
           <div className={cx("menu__open__cart")}>
             <ul>
               <li>
-                <Link >
+                <Link to={ROUTERS.USER.CART } >
                   <AiOutlineShoppingCart />
                   <span>1</span>
                 </Link>
@@ -262,8 +262,8 @@ const Header = () => {
               </div>
               <ul>
                 <li>
-                  <Link>
-                    <TiShoppingCart className={cx("cart-icon")} />
+                  <Link to={ROUTERS.USER.CART }>
+                    <TiShoppingCart  className={cx("cart-icon")} />
                     <span className={cx("cart-count")}>5</span>
                   </Link>
                 </li>

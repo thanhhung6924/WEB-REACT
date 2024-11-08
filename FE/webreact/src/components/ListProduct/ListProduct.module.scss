@@ -135,6 +135,7 @@ $SMALL: "SMALL";
     width: 100%;
     position: relative;
     overflow: hidden;
+    object-fit: cover;
     background-position: center;
     background-size: cover; /* Làm ảnh phủ hết phần tử */
     background-position: center;

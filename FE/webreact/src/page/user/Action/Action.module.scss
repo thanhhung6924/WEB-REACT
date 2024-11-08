@@ -89,7 +89,7 @@ $SMALL: "SMALL";
 }
 .row {
   margin-top: 20px;
-  display: grid;
+  display: grid !important;
   gap: 10px;
   grid-template-columns: 1fr 1fr 1fr 1fr;
 }

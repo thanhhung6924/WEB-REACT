@@ -1,0 +1,78 @@
+$DESKTOP: "DESKTOP";
+$MEDIUM: "MEDIUM";
+$TABLET: "TABLET";
+$MOBILE: "MOBILE";
+$SMALL: "SMALL";
+
+@mixin Responsive($canvas) {
+  @if ($canvas == $DESKTOP) {
+    @media only screen and (min-width: 1200px) {
+      @content;
+    }
+  } @else if ($canvas == $MEDIUM) {
+    @media only screen and (min-width: 992px) and (max-width: 1199px) {
+      @content;
+    }
+  } @else if ($canvas == $TABLET) {
+    @media only screen and (min-width: 768px) and (max-width: 991px) {
+      @content;
+    }
+  } @else if ($canvas == $MOBILE) {
+    @media only screen and (min-width: 576px) and (max-width: 767px) {
+      @content;
+    }
+  } @else if ($canvas == $SMALL) {
+    @media only screen and (max-width: 575px) {
+      @content;
+    }
+  }
+}
+@include Responsive($MOBILE) {
+}
+@include Responsive($TABLET) {
+}
+
+@include Responsive($MEDIUM) {
+}
+
+@include Responsive($DESKTOP) {
+}
+.wrapper {
+  color: rgb(0, 0, 0);
+  display: flex;
+  gap: 20px;
+  
+  .quantily {
+    padding:0 15px;
+    border: 0.5px solid orangered;
+    display: flex;
+    align-items: center;
+    width: 150px;
+    input {
+      
+      outline: none;
+      border: none;
+      padding: 5px  15px;
+      &::-webkit-inner-spin-button,&::-webkit-outer-spin-button{
+        -webkit-appearance: none;
+      }
+    }
+    span {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+    }
+    .btn,
+    .in {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      
+      width: 40px;
+      height: 50px;
+      background-color: rgb(255, 255, 255);
+    }
+  }
+}

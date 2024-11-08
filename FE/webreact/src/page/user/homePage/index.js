@@ -9,7 +9,6 @@ const cx = classNames.bind(styles);
 const HomePage = () => {
   const location=useLocation()
   const [isShowMenu, setMenu] = useState(false);
-
   const [isHome, setHome] = useState(location.pathname.length<=1);
   const [isShowC, setC] = useState(isHome);
   useEffect(() =>{

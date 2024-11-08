@@ -23,6 +23,7 @@ const listMenu = [
 ];
 function BreadCrumb(props) {
   
+  console.log(props.name)
   return (
     <Fragment>
       <div className={cx("bread")}>
@@ -31,7 +32,7 @@ function BreadCrumb(props) {
           <div className={cx("option")}>
             <ul>
               <li className={cx("")}>
-                <Link to={props.link}>Trang chủ</Link>
+                <Link to>Trang chủ</Link>
               </li>
               <li className={cx("link")}>{props.name}</li>
             </ul>

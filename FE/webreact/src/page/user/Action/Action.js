@@ -166,7 +166,7 @@ function Action(props) {
   ];
   return (
     <Fragment>
-      <BreadCrumb name="Danh sách sản phẩm" />
+      <BreadCrumb link={ROUTERS.USER.PROFILE} name="Danh sách sản phẩm" />
       <div className="container">
         <div className={`${cx("row__wrapper")} row`}>
           <div className="col-bread-3">
@@ -222,7 +222,7 @@ function Action(props) {
                     name={item.name}
                     price={item.price}
                     desc={item.desc}
-                    id={item.id}
+                    id={index}
                   />
                 </div>
               ))}
