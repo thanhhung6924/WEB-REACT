@@ -1,18 +1,17 @@
 import { Fragment, memo, useState, useEffect } from "react";
 import classNames from "classnames/bind";
 import styles from "./Detail.module.scss";
-import img1 from "../../../assets/user/images/banner/banner1.jpg";
-import img2 from "../../../assets/user/images/banner/banner1.jpg";
-import img3 from "../../../assets/user/images/banner/banner1.jpg";
-import { Link, useLocation } from "react-router-dom";
 import pr1 from "../../../assets/user/images/all/1.jpg";
 import pr2 from "../../../assets/user/images/all/2.jpg";
 import pr3 from "../../../assets/user/images/all/3.jpg";
 import pr4 from "../../../assets/user/images/all/4.jpg";
-import { ROUTERS } from "../../../../src/utils/router";
+import detail1 from "../../../assets/user/images/detail/1.jpg";
+import detail2 from "../../../assets/user/images/detail/2.jpg";
+import detail3 from "../../../assets/user/images/detail/3.jpg";
+import detail4 from "../../../assets/user/images/detail/4.jpg";
+
 import BreadCrumb from "../theme/BreadCrumb/BreadCrumb";
 import {
-  AiFillAlert,
   AiOutlineAim,
   AiOutlineCopy,
   AiOutlineEye,
@@ -23,7 +22,7 @@ import { formatter } from "../../../utils/fomatter";
 import { ListProDuct } from "../../../components";
 import Quantily from "../../../components/Quantity/Quantily";
 const cx = classNames.bind(styles);
-const imgs = [img1, img2, img3];
+const imgs = [detail2, detail3, detail4];
 const fullproducts = [
   {
     img: pr1,
@@ -74,7 +73,7 @@ function Detail() {
       <div className="container">
         <div className={`${cx("row")} row`}>
           <div className={`${cx("wrapper__img")} col-lg-6`}>
-            <img className={cx("big__img")} src={img1} alt="" />
+            <img className={cx("big__img")} src={detail1} alt="" />
             <div className={cx("mini__img")}>
               {imgs.map((img, i) => (
                 <img key={i} src={img} alt="" />
@@ -101,7 +100,7 @@ function Detail() {
             </p>
 
             {/* mua hàng */}
-            <Quantily hashAddToCart={true}/>
+            <Quantily hashAddToCart={true} />
             <ul>
               <li>
                 <b>Tình trạng:</b>

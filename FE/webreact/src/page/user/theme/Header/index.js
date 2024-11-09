@@ -106,10 +106,10 @@ const Header = () => {
           </div>
           <div className={cx("widget__open")}>
             <div className={cx("right__auth")}>
-              <Link to="">
+              <a href="https://thanhhung6924.github.io/login2/">
                 <BiUser />
                 <span>Đăng nhập</span>
-              </Link>
+              </a>
             </div>
           </div>
           <div className={cx("nav__open")}>
