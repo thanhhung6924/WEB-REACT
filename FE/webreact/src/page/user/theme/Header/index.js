@@ -3,7 +3,7 @@ import classNames from "classnames/bind";
 import styles from "./Header.module.scss";
 import { TiShoppingCart } from "react-icons/ti";
 
-import logo2 from"../../../../assets/user/images/logo/ananas_logo.svg" 
+import logo2 from "../../../../assets/user/images/logo/ananas_logo.svg";
 import {
   FaMailchimp,
   FaFacebookF,
@@ -94,7 +94,7 @@ const Header = () => {
           <div className={cx("menu__open__cart")}>
             <ul>
               <li>
-                <Link to={ROUTERS.USER.CART } >
+                <Link to={ROUTERS.USER.CART}>
                   <AiOutlineShoppingCart />
                   <span>1</span>
                 </Link>
@@ -108,39 +108,48 @@ const Header = () => {
             <div className={cx("right__auth")}>
               <a href="https://thanhhung6924.github.io/login2/">
                 <BiUser />
-                <span>Đăng nhập</span>
+                {/* <span>Đăng nhập</span> */}
+                <Link to={ROUTERS.ADMIN.LOGIN}>
+                  <span>Đăng nhập</span>
+                </Link>
               </a>
             </div>
           </div>
           <div className={cx("nav__open")}>
-            <ul >
+            <ul>
               {menu.map((item, index) => (
                 <li to={item.path} key={index}>
-                <Link to={item.path} 
-                onClick={()=>{
-                  const newMenu=[...menu]
-                  newMenu[index].isShowSubmenu=!newMenu[index].isShowSubmenu
-                  setMenu(newMenu)
-                }}>
-                  {item.name}
-                  {item.children &&
-                    (item.isShowSubmenu ? (
-                      <AiOutlineDownCircle />
-                    ) : (
-                      <AiOutlineUpCircle />
-                    ))}
-                </Link>
-                {item.children && (
-                  <ul className={`${cx("ul__list")} ${item.isShowSubmenu ? cx("drop") : ""}`}>
-                     {item.children.map((item, index) => (
-                      <li key={index}>
-                       <Link to={item.path}> {item.name}</Link>
-                      </li>
-                     ))}
-                    
-                  </ul>
-                )}
-              </li>
+                  <Link
+                    to={item.path}
+                    onClick={() => {
+                      const newMenu = [...menu];
+                      newMenu[index].isShowSubmenu =
+                        !newMenu[index].isShowSubmenu;
+                      setMenu(newMenu);
+                    }}
+                  >
+                    {item.name}
+                    {item.children &&
+                      (item.isShowSubmenu ? (
+                        <AiOutlineDownCircle />
+                      ) : (
+                        <AiOutlineUpCircle />
+                      ))}
+                  </Link>
+                  {item.children && (
+                    <ul
+                      className={`${cx("ul__list")} ${
+                        item.isShowSubmenu ? cx("drop") : ""
+                      }`}
+                    >
+                      {item.children.map((item, index) => (
+                        <li key={index}>
+                          <Link to={item.path}> {item.name}</Link>
+                        </li>
+                      ))}
+                    </ul>
+                  )}
+                </li>
               ))}
             </ul>
           </div>
@@ -218,7 +227,9 @@ const Header = () => {
                   <Link>
                     <IoPersonOutline />
                   </Link>
-                  <p>Đăng nhập</p>
+                  <Link to={ROUTERS.ADMIN.LOGIN}>
+                  <span>Đăng nhập</span>
+                </Link>
                 </li>
               </ul>
             </div>
@@ -229,7 +240,7 @@ const Header = () => {
         <div className={`${cx("navbar__list")} row`}>
           <div className=" col-lg-3 col-xl-3">
             <div className={cx("header__logo")}>
-            <img className="logo__all" src={logo2} alt="" />
+              <img className="logo__all" src={logo2} alt="" />
             </div>
           </div>
           <div className="col-lg-6 col-xl-6">
@@ -262,8 +273,8 @@ const Header = () => {
               </div>
               <ul>
                 <li>
-                  <Link to={ROUTERS.USER.CART }>
-                    <TiShoppingCart  className={cx("cart-icon")} />
+                  <Link to={ROUTERS.USER.CART}>
+                    <TiShoppingCart className={cx("cart-icon")} />
                     <span className={cx("cart-count")}>5</span>
                   </Link>
                 </li>

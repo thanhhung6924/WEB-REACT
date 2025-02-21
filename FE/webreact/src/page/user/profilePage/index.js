@@ -74,12 +74,7 @@ const ProfilePage = () => {
     all: {
       title: "TOÀN BỘ",
       products: [
-        {
-          img: pr1,
-          name: "Retro Souvenir Ball - The Team",
-          price: 550000,
-          desc: "New Arrival",
-        },
+        
         {
           img: pr2,
           name: "Basas Day Slide - Slip On",
@@ -241,6 +236,12 @@ const ProfilePage = () => {
           desc: "New Arrival",
         },
         {
+          img: pr2,
+          name: "Socks - Ananas Stripes",
+          price: 100000,
+          desc: "New Arrival",
+        },
+        {
           img: pr3,
           name: "Keychain - Mini Sneaker",
           price: 80000,
@@ -281,6 +282,18 @@ const ProfilePage = () => {
     footwear: {
       title: "GIÀY DÉP",
       products: [
+        {
+          img: pr9,
+          name: "High-Top Sneakers - Retro Black",
+          price: 890000,
+          desc: "New Arrival",
+        },
+        {
+          img: pr10,
+          name: "Slip-On Loafers - Urban Gray",
+          price: 600000,
+          desc: "New Arrival",
+        },
         {
           img: pr9,
           name: "High-Top Sneakers - Retro Black",

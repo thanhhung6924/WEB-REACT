@@ -1,6 +1,6 @@
 import { Fragment, memo } from "react";
 import Header from "../Header";
-import Footer from "../Footer/Footer";
+import Footer from "../../../admin/common/Footer/Footer";
 import HomePage from "../../homePage";
 const MasterLayout = ({ children, ...props }) => {
   return (

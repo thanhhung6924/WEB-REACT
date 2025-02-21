@@ -7,13 +7,15 @@ import {
   AiOutlineShoppingCart,
 } from "react-icons/ai";
 import { formatter } from "../../utils/fomatter";
-import { generatePath, Link } from "react-router-dom";
+import { generatePath, Link, useNavigate } from "react-router-dom";
 import { ROUTERS } from "../../utils/router";
 import BreadCrumb from "../../page/user/theme/BreadCrumb/BreadCrumb";
 import img from "../../assets/user/images/all/10.jpg";
 import Quantily from "../Quantity/Quantily";
 const cx = classNames.bind(styles);
+
 function Cart() {
+  const navigate = useNavigate();
   return (
     <Fragment>
       <BreadCrumb name="Giỏ hàng" />
@@ -63,9 +65,14 @@ function Cart() {
             <div className={cx("total")}>
               <h3>Tổng giá</h3>
               <p>Tổng giá: {formatter(400000)}</p>
-              <Link>
-                <button className={cx("btn")}>Tiến hành đặt hàng</button>
-              </Link>
+
+              <button
+                type="submit"
+                onClick={() => navigate(ROUTERS.USER.CHECKOUT)}
+                className={cx("btn")}
+              >
+                Tiến hành đặt hàng
+              </button>
             </div>
           </div>
         </div>

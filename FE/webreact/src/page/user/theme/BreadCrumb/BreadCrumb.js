@@ -32,7 +32,7 @@ function BreadCrumb(props) {
           <div className={cx("option")}>
             <ul>
               <li className={cx("")}>
-                <Link to>Trang chủ</Link>
+                <Link to={ROUTERS.USER.PROFILE} >Trang chủ</Link>
               </li>
               <li className={cx("link")}>{props.name}</li>
             </ul>

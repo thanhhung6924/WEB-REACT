@@ -9,14 +9,17 @@ import { ROUTERS } from "../../utils/router";
 const cx = classNames.bind(styles);
 function Quantily({ hashAddToCart = true }) {
   return (
-    <Fragment >
+    <Fragment>
       <div className={cx("wrapper")}>
         <div className={cx("quantily")}>
-          <span className={cx("btn")}>-</span>
-          <input className={cx("in")}  type="number" defaultValue={0} />
+          <span  className={cx("btn")}>-</span>
+          <input className={cx("in")} type="number" defaultValue={0} />
           <span className={cx("btn")}>+</span>
-        </div>{hashAddToCart&&(
-          <button className={cx("submit")} type="submit">Thêm vào giảo hàng</button>
+        </div>
+        {hashAddToCart && (
+          <button className={cx("submit")} type="submit">
+            Thêm vào giảo hàng
+          </button>
         )}
       </div>
     </Fragment>

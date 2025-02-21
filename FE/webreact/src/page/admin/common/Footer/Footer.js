@@ -22,8 +22,8 @@ const Footer = () => {
               <ul>
                 <li>Địa chỉ :84/90 Tân Sơn Nhì</li>
                 <li>Email : 123@gmail.com</li>
-                <li>Hotline : 0987654321</li>
-                <li>Giờ mở cửa : 8:00 - 22:00</li>
+                {/* <li>Hotline : 0987654321</li>
+                <li>Giờ mở cửa : 8:00 - 22:00</li> */}
               </ul>
             </div>
           </div>

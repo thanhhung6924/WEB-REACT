@@ -83,6 +83,10 @@ $SMALL: "SMALL";
       flex: 0 0 100%;
       max-width: 100%;
     }
+    .col-md-12{
+      flex: 0 0 100%;
+      max-width: 100%;
+    }
 }
 
 
@@ -92,11 +96,12 @@ $SMALL: "SMALL";
     flex: 0 0 50%;
     max-width: 50%;
   }
-  .col-md-12{
+
+  .col-mx-12{
     flex: 0 0 100%;
     max-width: 100%;
   }
-  .col-mx-12{
+  .col-md-12{
     flex: 0 0 100%;
     max-width: 100%;
   }

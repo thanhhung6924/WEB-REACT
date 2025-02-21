@@ -1,11 +1,13 @@
 import Cart from "./components/Cart/Cart";
 import Action from "./page/user/Action/Action";
+import Checkout from "./page/user/Checkout/Checkout";
 import Detail from "./page/user/Detail/Detail";
-import HomePage from "./page/user/homePage";
+import Login from"./page/admin/login/login"
 import ProfilePage from "./page/user/profilePage";
 import MasterLayout from "./page/user/theme/MasterLayout";
-import { ROUTERS } from "./utils/router";
-import { Routes, Route } from "react-router-dom";
+import { ADMIN_PATH, ROUTERS } from "./utils/router";
+import { Routes, Route, useLocation } from "react-router-dom";
+import MasterAdLayout from "./page/admin/theme/masterAdLayout/masterAdLayout";
 
 const renderUserRouter = () => {
   const userRouters = [
@@ -20,9 +22,15 @@ const renderUserRouter = () => {
     {
       path: ROUTERS.USER.CART,
       component: <Cart />,
-    },{
+    },
+    {
       path: ROUTERS.USER.PRODUCT,
       component: <Action />,
+    },
+    ,
+    {
+      path: ROUTERS.USER.CHECKOUT,
+      component: <Checkout />,
     },
   ];
   return (
@@ -35,8 +43,28 @@ const renderUserRouter = () => {
     </MasterLayout>
   );
 };
+const renderAdminRouter = () => {
+  const adminRouters = [
+    {
+      path: ROUTERS.ADMIN.LOGIN,
+      component: <Login />,
+    }
+  ];
+  return (
+    <MasterAdLayout>
+      <Routes>
+        {adminRouters.map(({ path, component }) => (
+          <Route key={path} path={path} element={component} />
+        ))}
+      </Routes>
+    </MasterAdLayout>
+  );
+};
+
 
 function RouterCustom() {
-  return renderUserRouter();
+ const location=useLocation();
+ const isAdminRouter =location.pathname.startsWith(ADMIN_PATH)
+ return isAdminRouter?renderAdminRouter():renderUserRouter();
 }
 export default RouterCustom;

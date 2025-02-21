@@ -1,0 +1,105 @@
+$DESKTOP: "DESKTOP";
+$MEDIUM: "MEDIUM";
+$TABLET: "TABLET";
+$MOBILE: "MOBILE";
+$SMALL: "SMALL";
+
+@mixin Responsive($canvas) {
+  @if ($canvas == $DESKTOP) {
+    @media only screen and (min-width: 1200px) {
+      @content;
+    }
+  } @else if ($canvas == $MEDIUM) {
+    @media only screen and (min-width: 992px) and (max-width: 1199px) {
+      @content;
+    }
+  } @else if ($canvas == $TABLET) {
+    @media only screen and (min-width: 768px) and (max-width: 991px) {
+      @content;
+    }
+  } @else if ($canvas == $MOBILE) {
+    @media only screen and (min-width: 576px) and (max-width: 767px) {
+      @content;
+    }
+  } @else if ($canvas == $SMALL) {
+    @media only screen and (max-width: 575px) {
+      @content;
+    }
+  }
+}
+.checkout__input {
+  width: 100%;
+  h2 {
+    margin: 10px 0;
+    margin-left: 10px;
+  }
+  input {
+    width: 100%;
+    height: 40px;
+    padding: 10px;
+    border: 1px solid rgb(240, 240, 240);
+    outline: none;
+    margin: 10px 0;
+  }
+  .checkout__group {
+    display: flex;
+    gap: 20px;
+    div {
+      width: 100%;
+    }
+  }
+  label {
+    span {
+      color: red;
+    }
+  }
+}
+.checkout__order {
+ 
+  padding: 40px;
+  margin: 10px 0;
+  margin-left: 40px;
+  border-radius: 10px;
+  background-color: rgba(237, 236, 236, 0.503);
+  @include Responsive($MOBILE) {
+    margin-left: 0;
+  }
+  @include Responsive($TABLET) {
+    margin-left: 0;
+  }
+  @include Responsive($SMALL) {
+    margin-left: 0;
+  }
+  h2 {
+    border-bottom: 1px solid gainsboro;
+  }
+  ul {
+    li {
+      line-height: 40px;
+      display: flex;
+      justify-content: space-between;
+    }
+  }
+  .total {
+    border-top: 1px solid gainsboro;
+    border-bottom: 1px solid gainsboro;
+    margin-bottom: 20px;
+    b{
+      color:  rgb(255, 110, 58);
+    }
+  }
+  button {
+    width: 100%;
+    height: 40px;
+   background-color: rgb(255, 110, 58);
+   font-size: 1.8rem;
+   font-weight: 700;
+   color: white;
+   border: none;
+  }
+  .code,.total{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+}
